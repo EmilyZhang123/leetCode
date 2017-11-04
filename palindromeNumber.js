@@ -23,3 +23,20 @@ var isPalindrome = function(x) {
     }
 };
 isPalindrome(222);
+//string
+function palindrome(str) {
+    var len = str.length;
+    console.log(len);
+
+    for ( var i = 0; i < Math.floor(len/2); i++ ) {
+        if (str[i] !== str[len - 1 - i]) {
+            // return false;
+            console.log('0');
+        }
+    }
+    // return true;
+    console.log('1');
+
+}
+
+palindrome("abc");
