@@ -28,8 +28,10 @@ var isValid = function(s) {
                 stack.push(s[i])
             }
             if(stack.length>0){
-                top=stack.pop();
-                console.log(top+s[i])
+                // top=stack.pop();
+                top=stack.slice(stack.length-1,stack.length)
+                console.log('top'+top)
+                console.log('s[i]'+s[i])
                 testBrackets(top,s[i])
             }else {
                 console.log('000000000000-====');
@@ -41,4 +43,4 @@ var isValid = function(s) {
         return false
     }
 }
-isValid('()')
+isValid("()")
