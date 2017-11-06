@@ -8,32 +8,37 @@ var isValid = function(s) {
     var stack=[];
     function testBrackets(left,right) {
         if(left=='('&&right==')'){
+            console.log('()11111111');
             return true
         }else if(left=='['&&right==']'){
+            console.log('[]11111111');
             return true
 
         }else if (left=='{'&&right=='}'){
+            console.log('{}11111111');
             return true
         }
-            return false
+        console.log('0000000');
+        return false
     }
     var top=null;
     if(s.length>1){
         for(i in s){
             if(s[i]=="("||s[i]=="["||s[i]=='{'){
                 stack.push(s[i])
-            }else {
-                if(stack.length>0){
-                    top=stack.pop();
-                    testBrackets(top,s[i])
-                }else {
-                    return false
-                }
             }
-        }
+            if(stack.length>0){
+                top=stack.pop();
+                console.log(top+s[i])
+                testBrackets(top,s[i])
+            }else {
+                console.log('000000000000-====');
+                return false
+            }
+            }
     }else {
+        console.log('000000000000-ppppppp==');
         return false
     }
-
 }
-isValid('([])')
+isValid('()')
