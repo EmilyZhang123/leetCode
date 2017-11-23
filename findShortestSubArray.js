@@ -5,37 +5,30 @@
  */
 
 var findShortestSubArray = function(nums) {
-    if (nums.length == 0 || !nums) {
-        return 0;
-    }
-    var m = {};
-    var maxTimes = 0;
-    for (var i = 0; i < nums.length; i++) {
-        var num = nums[i];
-        var item = m[num];
-        if (item) {
-            item.right = i;
-            item.times++;
-            maxTimes = Math.max(item.times, maxTimes);
-        } else {
-            m[num] = {
-                times: 1,
-                left: i,
-                right: i
-            }
-            maxTimes = Math.max(1, maxTimes);
+    if(nums.length==0 || !nums) return 0;
+    var m={};
+    var maxTimes=0;
+    for(var i=0;i<nums.length;i++){
+        var item=m[nums[i]];
+        if (item){
+          item.times ++;
+          item.right=i;
+          maxTimes=Math.max(maxTimes,item.times)
+        }else {
+          m[nums[i]]={
+              left:i,
+              right:i,
+              times:1
+          }
         }
+        maxTimes=Math.max(maxTimes,1);
     }
     var min = 2147483647;
-    for (var i in m) {
-        var item = m[i];
-        if (item.times == maxTimes) {
-            if (item.left == item.right) {
-                min = Math.min(1, min);
-            } else {
-                min = Math.min(item.right - item.left + 1, min);
-            }
+    for (var j in m){
+        var item=m[j];
+        if (maxTimes==item.times){
+          min=Math.min(min,item.right-item.left+1);
         }
     }
-    return min;
-};};
+    return min
+};
