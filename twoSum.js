@@ -8,13 +8,29 @@ var twoSum = function(nums, target) {
         var a= [];
         for(j=i+1;j<nums.length;j++){
             if(nums[i]+nums[j]==target){
-                // return i,j;   return只能返回一个值
                 a.push(i);
                 a.push(j);
-                console.log(a);
-                // return a;
+                return a;
             }
         }
     }
 };
-twoSum([3,2,4],6);
+// console.log(twoSum([3,2,4],6));
+
+// 167. Two Sum II - Input array is sorted
+var twoSum2 = function(numbers, target) {
+ var left=0;
+ var right=numbers.length-1;
+ while (left<right){
+     if(numbers[left]+numbers[right]==target){
+         return [left+1,right+1];
+     }
+     else if(numbers[left]+numbers[right]<target){
+         left+=1;
+
+     }else if(numbers[left]+numbers[right]>target){
+         right-=1;
+     }
+ }
+};
+console.log(twoSum2([2,3,4],6));
