@@ -13,19 +13,19 @@ var matrixReshape = function(nums, r, c) {
     if (n==r*c){
         for (var i=0;i<n;i++){
             new_nums[parseInt(i/c)]= [];
+            console.log('old====['+parseInt(i/origin_c)+']['+[i%origin_c]+']'+nums[parseInt(i/origin_c)][i%origin_c])
             new_nums[parseInt(i/c)][i%c]=nums[parseInt(i/origin_c)][i%origin_c];
+           // console.log('==ggggg===');
+            console.log('new====['+parseInt(i/c)+']['+[i%c]+']'+ new_nums[parseInt(i/c)][i%c]);
+
         }
+        console.log('=====');
         return new_nums;
     }else {
         return nums;
     }
 
 };
-console.log(matrixReshape([[1,2],[3,4]],1,4));
+console.log(matrixReshape([[5,3],[3,4]],1,4));
 
-/*var a=[[1,2],[3,4]];
-var y=a.length;
-var x=a[0].length;
-for (var i=0;i<x*y;i++){
-    console.log(a[i%x][i%y])
-}*/
+
