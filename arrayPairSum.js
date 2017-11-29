@@ -6,24 +6,27 @@
  * @return {number}
  */
 var arrayPairSum = function(nums) {
-    nums=nums.sort();
-    console.log(nums);
+    nums=nums.sort(function sortNumber(a,b) {
+        return a - b
+    });
+    // console.log(nums);
     var sum=0;
-  /*  for (var i in nums){
-        if (i%2==0){
-            sum+=nums[i];
-        }
-    }*/
-
   for (var i=0;i<nums.length;i=i+2){
-      sum=sum+getMin(nums[i],nums[i+1]);
+      sum=sum+nums[i];
   }
     return sum;
 };
-function getMin(a,b) {
-    if (a<b) return a;
-    if (b<a) return b;
-    if (a=b) return a
-}
 
 console.log(arrayPairSum([7,3,1,0,0,6]));
+/*
+//
+升序排列
+function sortNumber(a,b)
+{
+    return a - b
+}
+降序排列则为
+function sortNumber(a,b)
+{
+    return b - a
+}*/
