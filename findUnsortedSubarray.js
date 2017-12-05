@@ -4,24 +4,19 @@
  * @return {number}
  */
 var findUnsortedSubarray = function(nums) {
-    var nums2=nums.slice(0).sort();
-// console.log(nums2);
-
-        var left=0;
-        var right=nums.length-1;
-        for (var i=0;i<nums.length;i++){
-            if (nums[i]>nums[i+1]){
-                left=i;
-                break;
-            }
-        }
-        for (i=nums.length-1;i>0;i--){
-            if (nums[i]<nums[i-1]){
-                right=i;
-                break;
-            }
-        }
-        return right-left+1;
-
+    var temp=nums.slice(0).sort(function (a,b) {return a-b  });
+    console.log(nums);
+    console.log(temp);
+    var left=0;
+    var right=nums.length-1;
+    while (left<nums.length && nums[left]==temp[left]){
+        left++;
+    }
+    while (right>0 && nums[right]==temp[right]){
+       right -- ;
+    }
+    console.log("left="+left+"///right="+right);
+    return (right-left+1) >0?right-left+1:0;
 };
-console.log(findUnsortedSubarray([1,2,3,4]));
+
+console.log(findUnsortedSubarray([9,2,3,4,1,2,3,1,100,101,102,103]));
