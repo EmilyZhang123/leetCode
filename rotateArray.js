@@ -7,8 +7,13 @@
 var rotate = function(nums, k) {
     if(nums == null || nums.length == 0 || k % nums.length == 0) return;
     var left=nums.splice(0,nums.length-k).reverse();
+    console.log(nums);
+    console.log('1');
     var right=nums.reverse();
+    console.log(nums);
+    console.log('2');
     nums=left.concat(right).reverse();
-     return nums
+    console.log(nums);
+    console.log('3');
 };
 console.log(rotate([1,2],1));
